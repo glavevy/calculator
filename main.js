@@ -29,5 +29,19 @@ const operate = function (operator, a, b) {
   }
 };
 
+const buttons = Array.from(document.querySelector("#operators-operands"));
+const operators = Array.from(document.querySelectorAll(".operator"));
+const operands = Array.from(document.querySelectorAll(".operand"));
+const plusMinus = document.querySelector("#plus-minus");
+const backspace = document.querySelector("#backspace");
+const clear = document.querySelector("#clear");
+const display = document.querySelector("#display");
 
+
+
+for (let i = 0; i < operands.length; i++) {
+  operands[i].addEventListener('click', () => {
+    display.textContent = `${operands[i].textContent}${display.textContent}`;
+  });
+}
 
