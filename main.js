@@ -19,25 +19,29 @@ const operate = function (operator, a, b) {
     result = add(a, b);
     display.textContent = result;
     displayValue = result;
-    sign = '+';
+    sign = "+";
+    operations.textContent += displayValue + '' + sign;
   }
   if (operator === "-") {
     result = subtract(a, b);
     display.textContent = result;
     displayValue = result;
-    sign = '-';
+    sign = "-";
+    operations.textContent += displayValue + '' + sign;
   }
   if (operator === "*") {
     result = multiply(a, b);
     display.textContent = result;
     displayValue = result;
-    sign = '*';
+    sign = "*";
+    operations.textContent += displayValue + '' + sign;
   }
   if (operator === "/") {
     result = divide(a, b);
     display.textContent = result;
     displayValue = result;
-    sign = '/';
+    sign = "/";
+    operations.textContent += displayValue + '' + sign;
   }
 };
 
@@ -45,7 +49,8 @@ let displayValue = "",
   firstNumber = "",
   sign,
   result = 0,
-  displaySecondNumber;
+  displaySecondNumber,
+  newSign;
 
 const buttons = Array.from(document.querySelector("#operators-operands"));
 const operators = Array.from(document.querySelectorAll(".operator"));
@@ -59,6 +64,7 @@ const plusMinus = document.querySelector("#plus-minus");
 const backspace = document.querySelector("#backspace");
 const clear = document.querySelector("#clear");
 const display = document.querySelector("#display");
+const operations = document.querySelector("#operations");
 
 let displayText = display.textContent;
 
@@ -67,13 +73,13 @@ for (let i = 0; i < operands.length; i++) {
     if (result === 0) {
       display.textContent = `${display.textContent}${operands[i].textContent}`;
       displayValue = Number(display.textContent);
-      // console.log(displayValue);
-      //console.log(result);
+      operations.textContent += displayValue;
       console.log("c");
     } else {
       console.log("d");
       display.textContent = `${operands[i].textContent}`;
       displayValue = Number(display.textContent);
+      operations.textContent += displayValue;
       result = 0;
     }
   });
@@ -81,71 +87,25 @@ for (let i = 0; i < operands.length; i++) {
 
 for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", () => {
-    if (firstNumber !== "" && displayValue !== "") {
-      //display.textContent = "";
-      //sign = operators[i].textContent;
-      //console.log(temp);
-      //console.log(displayValue)
+    if (firstNumber ?? displayValue) {
+      console.log(typeof displayValue);
+      console.log(typeof firstNumber);
       console.log("b");
       display.textContent = "";
       operate(sign, firstNumber, displayValue);
+      sign = operators[i].textContent;
       firstNumber = result;
-      displayValue = "";
-      //sign = "";
+      displayValue = null;
+      operations.textContent = firstNumber + sign; 
+      console.log(typeof displayValue);
+      console.log(typeof firstNumber);
     } else {
       firstNumber = displayValue;
-      displayValue = "";
-      display.textContent = "";
+      displayValue = null;
       sign = operators[i].textContent;
-      sign.activeElement;
       console.log("a");
-      //result = 0;
+      result = 1;
+      operations.textContent += '' + sign; 
     }
   });
 }
-
-// temp = result;
-// display.textContent = `${result} ${sign} ${operands[i].textContent}`;
-// displaySecondNumber = displayText.charAt(displayText.length-1);
-// displayValue = Number(displaySecondNumber);
-// displayValue = Number(display.textContent);
-// displayValue = result;
-//display.textContent = result;
-// temp = displayValue;
-//displayValue = Number(display.textContent);
-//console.log(result);
-
-// } else if (sign !== "") {
-//   operate(sign, firstNumber, displayValue);
-// display.textContent = "";
-// sign = operators[i].textContent;
-// console.log(sign);
-// if (temp !== "" && displayValue !== "") {
-//   operate(sign, temp, displayValue);
-//   temp = "";
-//   sign = "";
-// }
-
-//sled kato prikluchi temp = displayValue aktivirane na butonite i sled tova operate
-
-//console.log(operate("+", 5, 2));
-//let displayValue = 0;
-
-//let operandsArray = Array.from(operands);
-
-//addEventListener textcontent, make them into an array querySelectorAll
-//toarray map
-
-//operands.addEventListener("click", getValue);
-// const displayValue = function () {
-//   display.textContent = operands[i].textContent;
-//   console.log(operands.textContent)
-//   return display;
-// };
-
-// if (displayValue.length === 10) {
-//   display.textContent = '';
-// }
-// if(displayValue === '' ){
-//   display.textContent = `${operands[i].textContent}`;
-// }
