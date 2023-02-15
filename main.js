@@ -20,25 +20,28 @@ const operate = function (operator, a, b) {
     display.textContent = result;
     displayValue = result;
     sign = '+';
-    return result;
   }
   if (operator === "-") {
     result = subtract(a, b);
     display.textContent = result;
     displayValue = result;
     sign = '-';
-    return result;
   }
   if (operator === "*") {
-    display.textContent = multiply(a, b);
-    return display.textContent;
+    result = multiply(a, b);
+    display.textContent = result;
+    displayValue = result;
+    sign = '*';
   }
   if (operator === "/") {
-    display.textContent = divide(a, b);
-    return display.textContent;
+    result = divide(a, b);
+    display.textContent = result;
+    displayValue = result;
+    sign = '/';
   }
 };
-let displayValue = '',
+
+let displayValue = "",
   firstNumber = "",
   sign,
   result = 0,
@@ -68,16 +71,6 @@ for (let i = 0; i < operands.length; i++) {
       //console.log(result);
       console.log("c");
     } else {
-      // temp = result;
-      // display.textContent = `${result} ${sign} ${operands[i].textContent}`;
-      // displaySecondNumber = displayText.charAt(displayText.length-1);
-      // displayValue = Number(displaySecondNumber);
-      // displayValue = Number(display.textContent);
-     // displayValue = result;
-      //display.textContent = result;
-      // temp = displayValue;
-     //displayValue = Number(display.textContent);
-      //console.log(result);
       console.log("d");
       display.textContent = `${operands[i].textContent}`;
       displayValue = Number(display.textContent);
@@ -94,33 +87,44 @@ for (let i = 0; i < operators.length; i++) {
       //console.log(temp);
       //console.log(displayValue)
       console.log("b");
-      display.textContent = ""; 
+      display.textContent = "";
       operate(sign, firstNumber, displayValue);
       firstNumber = result;
-      displayValue = '';
+      displayValue = "";
       //sign = "";
-    // } else if (sign !== "") {
-    //   operate(sign, firstNumber, displayValue);
     } else {
       firstNumber = displayValue;
       displayValue = "";
       display.textContent = "";
       sign = operators[i].textContent;
-      sign.activeElement
+      sign.activeElement;
       console.log("a");
       //result = 0;
     }
-
-    // display.textContent = "";
-    // sign = operators[i].textContent;
-    // console.log(sign);
-    // if (temp !== "" && displayValue !== "") {
-    //   operate(sign, temp, displayValue);
-    //   temp = "";
-    //   sign = "";
-    // }
   });
 }
+
+// temp = result;
+// display.textContent = `${result} ${sign} ${operands[i].textContent}`;
+// displaySecondNumber = displayText.charAt(displayText.length-1);
+// displayValue = Number(displaySecondNumber);
+// displayValue = Number(display.textContent);
+// displayValue = result;
+//display.textContent = result;
+// temp = displayValue;
+//displayValue = Number(display.textContent);
+//console.log(result);
+
+// } else if (sign !== "") {
+//   operate(sign, firstNumber, displayValue);
+// display.textContent = "";
+// sign = operators[i].textContent;
+// console.log(sign);
+// if (temp !== "" && displayValue !== "") {
+//   operate(sign, temp, displayValue);
+//   temp = "";
+//   sign = "";
+// }
 
 //sled kato prikluchi temp = displayValue aktivirane na butonite i sled tova operate
 
