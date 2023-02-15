@@ -16,14 +16,17 @@ const divide = function (a, b) {
 
 const operate = function (operator, a, b) {
   if (operator === "+") {
-    console.log(a);
     result = add(a, b);
     display.textContent = result;
+    displayValue = result;
+    sign = '+';
     return result;
   }
   if (operator === "-") {
-    result = subtract(a, b)
+    result = subtract(a, b);
     display.textContent = result;
+    displayValue = result;
+    sign = '-';
     return result;
   }
   if (operator === "*") {
@@ -35,10 +38,11 @@ const operate = function (operator, a, b) {
     return display.textContent;
   }
 };
-let displayValue,
-  temp = "",
+let displayValue = '',
+  firstNumber = "",
   sign,
-  result = 0;
+  result = 0,
+  displaySecondNumber;
 
 const buttons = Array.from(document.querySelector("#operators-operands"));
 const operators = Array.from(document.querySelectorAll(".operator"));
@@ -53,32 +57,60 @@ const backspace = document.querySelector("#backspace");
 const clear = document.querySelector("#clear");
 const display = document.querySelector("#display");
 
-//console.log(operate("+", 5, 2))
+let displayText = display.textContent;
 
 for (let i = 0; i < operands.length; i++) {
   operands[i].addEventListener("click", () => {
-    display.textContent = `${display.textContent}${operands[i].textContent}`;
-    displayValue = Number(display.textContent);
-    console.log(displayValue);
+    if (result === 0) {
+      display.textContent = `${display.textContent}${operands[i].textContent}`;
+      displayValue = Number(display.textContent);
+      // console.log(displayValue);
+      //console.log(result);
+      console.log("c");
+    } else {
+      // temp = result;
+      // display.textContent = `${result} ${sign} ${operands[i].textContent}`;
+      // displaySecondNumber = displayText.charAt(displayText.length-1);
+      // displayValue = Number(displaySecondNumber);
+      // displayValue = Number(display.textContent);
+     // displayValue = result;
+      //display.textContent = result;
+      // temp = displayValue;
+     //displayValue = Number(display.textContent);
+      //console.log(result);
+      console.log("d");
+      display.textContent = `${operands[i].textContent}`;
+      displayValue = Number(display.textContent);
+      result = 0;
+    }
   });
 }
 
 for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", () => {
-    if (temp !== "" && displayValue !== "") {
-      display.textContent = "";
+    if (firstNumber !== "" && displayValue !== "") {
+      //display.textContent = "";
       //sign = operators[i].textContent;
-      console.log(sign);
-      operate(sign, temp, displayValue);
-      temp = "";
-      sign = "";
+      //console.log(temp);
+      //console.log(displayValue)
+      console.log("b");
+      display.textContent = ""; 
+      operate(sign, firstNumber, displayValue);
+      firstNumber = result;
+      displayValue = '';
+      //sign = "";
+    // } else if (sign !== "") {
+    //   operate(sign, firstNumber, displayValue);
     } else {
-      temp = displayValue;
+      firstNumber = displayValue;
       displayValue = "";
       display.textContent = "";
       sign = operators[i].textContent;
-      console.log(sign);
+      sign.activeElement
+      console.log("a");
+      //result = 0;
     }
+
     // display.textContent = "";
     // sign = operators[i].textContent;
     // console.log(sign);
