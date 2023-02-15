@@ -20,35 +20,35 @@ const operate = function (operator, a, b) {
     display.textContent = result;
     displayValue = result;
     sign = "+";
-    operations.textContent += displayValue + '' + sign;
+    //operations.textContent = displayValue + ' ' + sign;
   }
   if (operator === "-") {
     result = subtract(a, b);
     display.textContent = result;
     displayValue = result;
     sign = "-";
-    operations.textContent += displayValue + '' + sign;
+    //operations.textContent = displayValue + ' ' + sign;
   }
   if (operator === "*") {
     result = multiply(a, b);
     display.textContent = result;
     displayValue = result;
     sign = "*";
-    operations.textContent += displayValue + '' + sign;
+    operations.textContent += displayValue + ' ' + sign;
   }
   if (operator === "/") {
     result = divide(a, b);
     display.textContent = result;
     displayValue = result;
     sign = "/";
-    operations.textContent += displayValue + '' + sign;
+    operations.textContent += displayValue + ' ' + sign;
   }
   if (operator === '=') {
     result = firstNumber;
     display.textContent = result;
     displayValue = firstNumber;
     sign = "=";
-    operations.textContent += displayValue + '';
+    operations.textContent += displayValue + ' ';
   }
 };
 
@@ -80,13 +80,13 @@ for (let i = 0; i < operands.length; i++) {
     if (result === 0) {
       display.textContent = `${display.textContent}${operands[i].textContent}`;
       displayValue = Number(display.textContent);
-      operations.textContent = displayValue;
+     // operations.textContent = displayValue;
       console.log("c");
     } else {
       console.log("d");
       display.textContent = `${operands[i].textContent}`;
       displayValue = Number(display.textContent);
-      operations.textContent += displayValue;
+     // operations.textContent += displayValue;
       result = 0;
     }
   });
@@ -104,10 +104,10 @@ for (let i = 0; i < operators.length; i++) {
       firstNumber = result;
       displayValue = null;
       if(sign !== '='){
-      operations.textContent = firstNumber + '' + sign; 
+      operations.textContent = firstNumber + ' ' + sign; 
       }
       else{
-        operations.textContent = firstNumber + '';
+        operations.textContent = firstNumber + ' ';
       }
       console.log(typeof displayValue);
       console.log(typeof firstNumber);
@@ -117,7 +117,7 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       console.log("a");
       result = 1;
-      operations.textContent += '' + sign; 
+      //operations.textContent += ' ' + sign; 
     }
   });
 }
