@@ -43,12 +43,19 @@ const operate = function (operator, a, b) {
     sign = "/";
     operations.textContent += displayValue + '' + sign;
   }
+  if (operator === '=') {
+    result = firstNumber;
+    display.textContent = result;
+    displayValue = firstNumber;
+    sign = "=";
+    operations.textContent += displayValue + '';
+  }
 };
 
 let displayValue = "",
   firstNumber = "",
   sign,
-  result = 0,
+  result = 1,
   displaySecondNumber,
   newSign;
 
@@ -73,7 +80,7 @@ for (let i = 0; i < operands.length; i++) {
     if (result === 0) {
       display.textContent = `${display.textContent}${operands[i].textContent}`;
       displayValue = Number(display.textContent);
-      operations.textContent += displayValue;
+      operations.textContent = displayValue;
       console.log("c");
     } else {
       console.log("d");
@@ -96,7 +103,12 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       firstNumber = result;
       displayValue = null;
-      operations.textContent = firstNumber + sign; 
+      if(sign !== '='){
+      operations.textContent = firstNumber + '' + sign; 
+      }
+      else{
+        operations.textContent = firstNumber + '';
+      }
       console.log(typeof displayValue);
       console.log(typeof firstNumber);
     } else {
@@ -109,3 +121,12 @@ for (let i = 0; i < operators.length; i++) {
     }
   });
 }
+
+clear.addEventListener("click", () => {
+  displayValue = "";
+  firstNumber = "";
+  sign = '';
+  result = 1;
+  display.textContent = 0;
+  operations.textContent = '';
+})
