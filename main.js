@@ -45,6 +45,12 @@ const operate = function (operator, a, b) {
     displayValue = firstNumber;
     sign = "=";
   }
+  if (operator === "%") {
+    result = firstNumber / 100;
+    display.textContent = result;
+    displayValue = result;
+    sign = "%";
+  }
 };
 
 let displayValue = "",
@@ -90,7 +96,10 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       firstNumber = result;
       displayValue = null;
-      if (sign !== "=") {
+      if (sign === "%") {
+        operate(sign, firstNumber);
+        operations.textContent = firstNumber + " " + sign;
+      } else if (sign !== "=") {
         operations.textContent = firstNumber + " " + sign;
       } else {
         operations.textContent = firstNumber + " ";
@@ -100,9 +109,13 @@ for (let i = 0; i < operators.length; i++) {
     } else {
       firstNumber = displayValue;
       displayValue = null;
-      sign = operators[i].textContent;
+      sign = operators[i].textContent; 
       console.log("a");
       result = 1;
+      if (sign === "%") {
+        operate(sign, firstNumber);
+        operations.textContent = firstNumber + " " + sign;
+      }
     }
   });
 }
@@ -151,7 +164,9 @@ mRC.addEventListener("dblclick", () => {
   console.log(memory);
 });
 
-backspace.addEventListener('click', () => {
-  displayValue = Number(displayValue.toString().split('').slice(0, -1).join(''));
+backspace.addEventListener("click", () => {
+  displayValue = Number(
+    displayValue.toString().split("").slice(0, -1).join("")
+  );
   display.textContent = displayValue;
-})
+});
