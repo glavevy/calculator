@@ -61,7 +61,6 @@ const times = document.querySelector("#times");
 const division = document.querySelector("#division");
 const equal = document.querySelector("equals");
 const operands = Array.from(document.querySelectorAll(".operand"));
-const plusMinus = document.querySelector("#plus-minus");
 const backspace = document.querySelector("#backspace");
 const clear = document.querySelector("#clear");
 const display = document.querySelector("#display");
@@ -156,3 +155,8 @@ mRC.addEventListener("dblclick", () => {
   memory = 0;
   console.log(memory);
 });
+
+backspace.addEventListener('click', () => {
+  displayValue = Number(displayValue.toString().split('').slice(0, -1).join(''));
+  display.textContent = displayValue;
+})
