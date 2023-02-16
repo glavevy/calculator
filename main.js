@@ -55,11 +55,6 @@ let displayValue = "",
 
 const buttons = Array.from(document.querySelector("#operators-operands"));
 const operators = Array.from(document.querySelectorAll(".operator"));
-const plus = document.querySelector("#plus");
-const minus = document.querySelector("#minus");
-const times = document.querySelector("#times");
-const division = document.querySelector("#division");
-const equal = document.querySelector("equals");
 const operands = Array.from(document.querySelectorAll(".operand"));
 const backspace = document.querySelector("#backspace");
 const clear = document.querySelector("#clear");
