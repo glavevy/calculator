@@ -20,35 +20,30 @@ const operate = function (operator, a, b) {
     display.textContent = result;
     displayValue = result;
     sign = "+";
-    //operations.textContent = displayValue + ' ' + sign;
   }
   if (operator === "-") {
     result = subtract(a, b);
     display.textContent = result;
     displayValue = result;
     sign = "-";
-    //operations.textContent = displayValue + ' ' + sign;
   }
   if (operator === "*") {
     result = multiply(a, b);
     display.textContent = result;
     displayValue = result;
     sign = "*";
-    operations.textContent += displayValue + ' ' + sign;
   }
   if (operator === "/") {
     result = divide(a, b);
     display.textContent = result;
     displayValue = result;
     sign = "/";
-    operations.textContent += displayValue + ' ' + sign;
   }
-  if (operator === '=') {
+  if (operator === "=") {
     result = firstNumber;
     display.textContent = result;
     displayValue = firstNumber;
     sign = "=";
-    operations.textContent += displayValue + ' ';
   }
 };
 
@@ -56,8 +51,7 @@ let displayValue = "",
   firstNumber = "",
   sign,
   result = 1,
-  displaySecondNumber,
-  newSign;
+  memory = 0;
 
 const buttons = Array.from(document.querySelector("#operators-operands"));
 const operators = Array.from(document.querySelectorAll(".operator"));
@@ -72,21 +66,20 @@ const backspace = document.querySelector("#backspace");
 const clear = document.querySelector("#clear");
 const display = document.querySelector("#display");
 const operations = document.querySelector("#operations");
-
-let displayText = display.textContent;
+const memPlus = document.querySelector("#memPlus");
+const memMinus = document.querySelector("#memMinus");
+const mRC = document.querySelector("#MRC");
 
 for (let i = 0; i < operands.length; i++) {
   operands[i].addEventListener("click", () => {
     if (result === 0) {
       display.textContent = `${display.textContent}${operands[i].textContent}`;
       displayValue = Number(display.textContent);
-     // operations.textContent = displayValue;
       console.log("c");
     } else {
       console.log("d");
       display.textContent = `${operands[i].textContent}`;
       displayValue = Number(display.textContent);
-     // operations.textContent += displayValue;
       result = 0;
     }
   });
@@ -103,11 +96,10 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       firstNumber = result;
       displayValue = null;
-      if(sign !== '='){
-      operations.textContent = firstNumber + ' ' + sign; 
-      }
-      else{
-        operations.textContent = firstNumber + ' ';
+      if (sign !== "=") {
+        operations.textContent = firstNumber + " " + sign;
+      } else {
+        operations.textContent = firstNumber + " ";
       }
       console.log(typeof displayValue);
       console.log(typeof firstNumber);
@@ -117,7 +109,6 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       console.log("a");
       result = 1;
-      //operations.textContent += ' ' + sign; 
     }
   });
 }
@@ -125,8 +116,43 @@ for (let i = 0; i < operators.length; i++) {
 clear.addEventListener("click", () => {
   displayValue = "";
   firstNumber = "";
-  sign = '';
+  sign = "";
   result = 1;
   display.textContent = 0;
-  operations.textContent = '';
-})
+  operations.textContent = 0;
+});
+
+memPlus.addEventListener("click", () => {
+  console.log(memory);
+  memory += firstNumber;
+  console.log(memory);
+  displayValue = "";
+  firstNumber = "";
+  sign = "";
+  result = 1;
+  display.textContent = 0;
+  operations.textContent = 0;
+});
+
+memMinus.addEventListener("click", () => {
+  console.log(memory);
+  memory -= firstNumber;
+  console.log(memory);
+  displayValue = "";
+  firstNumber = "";
+  sign = "";
+  result = 1;
+  display.textContent = 0;
+  operations.textContent = 0;
+});
+
+mRC.addEventListener("click", () => {
+  operations.textContent = memory;
+  display.textContent = memory;
+  console.log(memory);
+});
+
+mRC.addEventListener("dblclick", () => {
+  memory = 0;
+  console.log(memory);
+});
