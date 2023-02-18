@@ -17,18 +17,21 @@ const divide = function (a, b) {
 const operate = function (operator, a, b) {
   if (operator === "+") {
     result = add(a, b);
+    result = Math.round(result * 1000) / 1000;
     display.textContent = result;
     displayValue = result;
     sign = "+";
   }
   if (operator === "-") {
     result = subtract(a, b);
+    result = Math.round(result * 1000) / 1000;
     display.textContent = result;
     displayValue = result;
     sign = "-";
   }
   if (operator === "*") {
     result = multiply(a, b);
+    result = Math.round(result * 1000) / 1000;
     display.textContent = result;
     displayValue = result;
     sign = "*";
@@ -38,6 +41,7 @@ const operate = function (operator, a, b) {
       return "lmao";
     } else {
       result = divide(a, b);
+      result = Math.round(result * 1000) / 1000;
       display.textContent = result;
       displayValue = result;
       sign = "/";
@@ -45,12 +49,14 @@ const operate = function (operator, a, b) {
   }
   if (operator === "=") {
     result = firstNumber;
+    result = Math.round(result * 1000) / 1000;
     display.textContent = result;
     displayValue = firstNumber;
     sign = "=";
   }
   if (operator === "%") {
     result = firstNumber / 100;
+    result = Math.round(result * 1000) / 1000;
     display.textContent = result;
     displayValue = result;
     sign = "%";
