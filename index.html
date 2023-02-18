@@ -11,32 +11,44 @@
   <body>
     <div id="main">
       <div id="calculator">
-        <div id="operations">0</div>
-        <div id="display">0</div>
+        <div id="screen">
+          <div id="operations">0</div>
+          <div id="display">0</div>
+        </div>
         <div id="operators-operands">
-          <button class="memory" id="memPlus">M+</button>
-          <button class="memory" id="memMinus">M-</button>
-          <button class="memory" id="MRC">MRC</button>
-          <button id="backspace">Back</button>
-          <button id="clear">Clear</button>
-
-          <button class="operator" id="percentage">%</button>
-          <button class="operator" id="division">/</button>
-          <button class="operator" id="times">*</button>
-          <button class="operator" id="minus">-</button>
-          <button class="operator" id="plus">+</button>
-          <button class="operator" id="equals">=</button>
-
-          <button class="operand" id="1">1</button>
-          <button class="operand" id="2">2</button>
-          <button class="operand" id="3">3</button>
-          <button class="operand" id="4">4</button>
-          <button class="operand" id="5">5</button>
-          <button class="operand" id="6">6</button>
-          <button class="operand" id="7">7</button>
-          <button class="operand" id="8">8</button>
-          <button class="operand" id="9">9</button>
-          <button class="operand" id="0">0</button>
+          <div id="first-row">
+            <button id="backspace">Back</button>
+            <button id="clear">Clear</button>
+          </div>
+          <div id="second-row">
+            <button class="memory" id="memPlus">M+</button>
+            <button class="memory" id="memMinus">M-</button>
+            <button class="memory" id="MRC">MRC</button>
+            <button class="operator" id="percentage">%</button>
+          </div>
+          <div id="third-row">
+            <button class="operand" id="7">7</button>
+            <button class="operand" id="8">8</button>
+            <button class="operand" id="9">9</button>
+            <button class="operator" id="division">/</button>
+          </div>
+          <div id="fourth-row">
+            <button class="operand" id="4">4</button>
+            <button class="operand" id="5">5</button>
+            <button class="operand" id="6">6</button>
+            <button class="operator" id="times">*</button>
+          </div>
+          <div id="fifth-row">
+            <button class="operand" id="1">1</button>
+            <button class="operand" id="2">2</button>
+            <button class="operand" id="3">3</button>
+            <button class="operator" id="minus">-</button>
+          </div>
+          <div id="sixth-row">
+            <button class="operand" id="0">0</button>
+            <button class="operator" id="equals">=</button>
+            <button class="operator" id="plus">+</button>
+          </div>
         </div>
       </div>
     </div>
