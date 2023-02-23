@@ -183,9 +183,16 @@ backspace.addEventListener("click", () => {
 });
 
 decimal.addEventListener("click", () => {
-  displayValue += ".";
-  //displayValue= Number(displayValue);
-  console.log(displayValue);
-  display.textContent = displayValue;
-  decimal.disabled = true;
+  if ((display.textContent = "" || displayValue === null)) {
+    displayValue = "0.";
+    console.log(displayValue);
+    display.textContent = displayValue;
+    result = 0;
+    decimal.disabled = true;
+  } else {
+    displayValue += ".";
+    console.log(displayValue);
+    display.textContent = displayValue;
+    decimal.disabled = true;
+  }
 });
