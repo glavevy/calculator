@@ -108,3 +108,7 @@
   padding: 12px;
   background-color: #ff6863;
 }
+
+#decimal:disabled {
+  color: black;
+}
