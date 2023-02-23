@@ -29,12 +29,12 @@ const operate = function (operator, a, b) {
     displayValue = result;
     sign = "-";
   }
-  if (operator === "*") {
+  if (operator === "X") {
     result = multiply(a, b);
     result = Math.round(result * 1000) / 1000;
     display.textContent = result;
     displayValue = result;
-    sign = "*";
+    sign = "X";
   }
   if (operator === "/") {
     if (b === 0) {
