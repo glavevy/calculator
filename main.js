@@ -104,6 +104,7 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       firstNumber = result;
       displayValue = null;
+      decimal.disabled = false;
       if (sign === "%") {
         operate(sign, firstNumber);
         operations.textContent = firstNumber + " " + sign;
@@ -118,9 +119,11 @@ for (let i = 0; i < operators.length; i++) {
       sign = operators[i].textContent;
       result = 1;
       operations.textContent = firstNumber + " " + sign;
+      decimal.disabled = false;
       if (sign === "%") {
         operate(sign, firstNumber);
         operations.textContent = firstNumber + " " + sign;
+        decimal.disabled = false;
       }
     }
   });
@@ -138,7 +141,6 @@ clear.addEventListener("click", () => {
 memPlus.addEventListener("click", () => {
   if (firstNumber === "") {
     memory += displayValue;
-    console.log(memory);
   } else {
     memory += firstNumber;
     displayValue = "";
@@ -147,14 +149,12 @@ memPlus.addEventListener("click", () => {
     result = 1;
     display.textContent = 0;
     operations.textContent = 0;
-    console.log(memory);
   }
 });
 
 memMinus.addEventListener("click", () => {
   if (firstNumber === "") {
     memory -= displayValue;
-    console.log(memory);
   } else {
     memory -= firstNumber;
     displayValue = "";
@@ -182,4 +182,10 @@ backspace.addEventListener("click", () => {
   display.textContent = displayValue;
 });
 
-decimal.addEventListener("click", () => {});
+decimal.addEventListener("click", () => {
+  displayValue += ".";
+  //displayValue= Number(displayValue);
+  console.log(displayValue);
+  display.textContent = displayValue;
+  decimal.disabled = true;
+});
