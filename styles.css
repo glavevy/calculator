@@ -59,7 +59,8 @@
 
 .memory,
 .operator,
-.operand {
+.operand,
+#decimal {
   display: flex;
   justify-content: center;
   min-height: 54px;
@@ -74,7 +75,8 @@
 }
 
 .operator,
-.memory {
+.memory,
+#decimal {
   background-color: #a0e7e5;
 }
 
@@ -87,10 +89,6 @@
   border: 2px solid black;
   border-radius: 8px;
   background-color: #b4f8c8;
-}
-
-#equals {
-  width: 236px;
 }
 
 #second-row,
