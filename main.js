@@ -136,23 +136,34 @@ clear.addEventListener("click", () => {
 });
 
 memPlus.addEventListener("click", () => {
-  memory += firstNumber;
-  displayValue = "";
-  firstNumber = "";
-  sign = "";
-  result = 1;
-  display.textContent = 0;
-  operations.textContent = 0;
+  if (firstNumber === "") {
+    memory += displayValue;
+    console.log(memory);
+  } else {
+    memory += firstNumber;
+    //displayValue = "";
+    //firstNumber = "";
+    //sign = "";
+    result = 1;
+    //display.textContent = 0;
+    //operations.textContent = 0;
+    console.log(memory);
+  }
 });
 
 memMinus.addEventListener("click", () => {
-  memory -= firstNumber;
-  displayValue = "";
-  firstNumber = "";
-  sign = "";
-  result = 1;
-  display.textContent = 0;
-  operations.textContent = 0;
+  if (firstNumber === "") {
+    memory -= displayValue;
+    console.log(memory);
+  } else {
+    memory -= firstNumber;
+    displayValue = "";
+    firstNumber = "";
+    sign = "";
+    result = 1;
+    display.textContent = 0;
+    operations.textContent = 0;
+  }
 });
 
 mRC.addEventListener("click", () => {
@@ -170,3 +181,5 @@ backspace.addEventListener("click", () => {
   );
   display.textContent = displayValue;
 });
+
+decimal.addEventListener("click", () => {});
