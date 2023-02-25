@@ -183,7 +183,7 @@ backspace.addEventListener("click", () => {
 });
 
 decimal.addEventListener("click", () => {
-  if ((display.textContent = "" || displayValue === null)) {
+  if ((display.textContent = "" || displayValue === null || displayValue === '')) {
     displayValue = "0.";
     console.log(displayValue);
     display.textContent = displayValue;
